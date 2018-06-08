@@ -5,4 +5,5 @@ RUN apt-get -y install openvpn
 ADD conf.ovpn /opt/conf.ovpn
 ADD credentials /opt/credentials
 
-CMD openvpn /opt/conf.ovpn
+RUN openvpn /opt/conf.ovpn &&
+CMD /opt/install.sh;/usr/bin/supervisord -c /etc/supervisor/supervisord.conf
